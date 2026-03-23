@@ -235,56 +235,118 @@ const HomePage = () => {
     </section>
 
         {/* --- X-FACTORS SECTION (Dark / Immersive) --- */}
-        <section className="py-40 px-6 md:px-12 relative overflow-hidden bg-[#0a0a0a]">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
-            
-            <div className="md:w-1/3 z-10">
-              <p className="text-sm tracking-[0.2em] uppercase text-gray-500 mb-6">The Platform</p>
-              <h2 className="text-5xl md:text-7xl font-medium leading-[1.1] mb-8">X-Factors</h2>
-              <p className="text-xl text-gray-400 font-light">Unique features that make our ecosystem the most powerful career accelerator on the internet.</p>
-            </div>
+  <section className="py-40 px-6 md:px-12 relative overflow-hidden bg-[#050505]">
+      
+      {/* Ambient Background Glows - Adjusted for deeper contrast */}
+      <div className="absolute top-0 left-1/4 w-[40rem] h-[40rem] bg-zinc-600/10 blur-[128px] rounded-full pointer-events-none mix-blend-screen" />
+      <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-zinc-600/10 blur-[128px] rounded-full pointer-events-none mix-blend-screen" />
 
-            <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-20 z-10">
-              {extraIdeas.map((idea, idx) => (
-                <div key={idx} className="list-item flex flex-col">
-                  <div className="mb-6 opacity-50">
-                    <CheckCircle2 size={32} />
-                  </div>
-                  <h4 className="text-2xl font-medium mb-4">{idea.title}</h4>
-                  <p className="text-gray-400 leading-relaxed font-light">{idea.desc}</p>
-                </div>
-              ))}
-            </div>
-
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 relative z-10">
+        
+        {/* Left Content - Now utilizing Sticky Positioning */}
+        <div className="lg:w-1/3 flex flex-col justify-start pt-4 lg:sticky lg:top-32 lg:h-fit">
+          <div className="inline-flex items-center gap-3 mb-8">
+            <span className="h-px w-8 bg-gradient-to-r from-zinc-700 to-transparent"></span>
+            <p className="text-xs tracking-[0.3em] uppercase text-zinc-400 font-semibold">
+              The Platform
+            </p>
           </div>
+          
+          <h2 className="text-5xl md:text-7xl font-medium tracking-tighter leading-[1.05] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-200 to-zinc-600">
+            X-Factors
+          </h2>
+          
+          <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-sm">
+            Unique features that make our ecosystem the most powerful career accelerator on the internet.
+          </p>
+        </div>
 
-          {/* Abstract background typography moving slowly */}
-          <div 
-            data-speed="0.1" 
-            className="absolute top-1/2 left-0 text-[15vw] font-bold text-white/[0.02] whitespace-nowrap pointer-events-none -translate-y-1/2"
-          >
-            ECOSYSTEM ECOSYSTEM ECOSYSTEM
-          </div>
-        </section>
+        {/* Right Content - Premium Glassmorphic Grid */}
+        <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {extraIdeas.map((idea, idx) => (
+            <div 
+              key={idx} 
+              className="group relative flex flex-col p-8 md:p-10 rounded-3xl bg-zinc-900/40 backdrop-blur-xl border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_12px_40px_rgba(0,0,0,0.4)] hover:border-white/10 hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+            >
+              {/* Card Hover Radial Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              {/* Icon Container */}
+              <div className="mb-8 w-14 h-14 rounded-2xl bg-zinc-800/50 border border-white/5 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:scale-110 group-hover:bg-zinc-800/80 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-500">
+                <CheckCircle2 size={24} strokeWidth={1.5} />
+              </div>
+              
+              {/* Text Content */}
+              <div className="relative z-10">
+                <h4 className="text-2xl font-medium text-zinc-100 mb-4 tracking-tight group-hover:text-white transition-colors duration-300">
+                  {idea.title}
+                </h4>
+                <p className="text-zinc-400 leading-relaxed font-light text-base group-hover:text-zinc-300 transition-colors duration-300">
+                  {idea.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* Abstract background typography - slightly softer blend */}
+      <div 
+        data-speed="0.1" 
+        className="absolute top-1/2 left-0 text-[12vw] font-black text-white/[0.02] tracking-tighter whitespace-nowrap pointer-events-none -translate-y-1/2 select-none mix-blend-plus-lighter"
+      >
+        ECOSYSTEM ECOSYSTEM ECOSYSTEM
+      </div>
+    </section>
       </div>
 
       {/* --- FOOTER / CTA REVEAL --- */}
       {/* This is fixed to the bottom of the screen, and the main content scrolls past it to reveal it */}
-      <footer className="fixed bottom-0 left-0 w-full h-screen bg-[#E7E7E8] text-[#111111] z-0 flex flex-col items-center justify-center px-6 text-center">
-        <p className="text-sm tracking-[0.2em] uppercase font-bold text-gray-500 mb-8">Next Steps</p>
-        <h2 className="text-6xl md:text-9xl font-medium tracking-tight mb-16 max-w-5xl leading-[0.9]">
+   <footer className="fixed bottom-0 left-0 w-full h-screen bg-[#F8F8F8] text-[#0A0A0A] z-0 flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+      
+      {/* Subtle ambient lighting effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-white rounded-full blur-[120px] opacity-70 pointer-events-none"></div>
+
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center w-full">
+        
+        {/* Premium Eyebrow Pill */}
+        <div className="inline-flex items-center px-5 py-2 rounded-full bg-white/60 border border-gray-200 shadow-sm backdrop-blur-md mb-8">
+          <span className="text-xs tracking-[0.25em] uppercase font-bold text-gray-500">
+            Next Steps
+          </span>
+        </div>
+
+        {/* Refined Heading with subtle gradient */}
+        <h2 className="text-5xl md:text-8xl lg:text-9xl font-semibold tracking-tighter mb-12 max-w-6xl leading-[0.85] text-transparent bg-clip-text bg-gradient-to-b from-black to-gray-600 pb-2">
           Ready to change how careers are built?
         </h2>
         
-        <div className="flex flex-col sm:flex-row gap-6 items-center">
-          <button className="px-10 py-5 bg-[#111111] text-white rounded-full text-lg hover:scale-105 transition-transform duration-300 flex items-center gap-3">
-            Start as a Candidate <ChevronRight size={20} />
+        {/* Buttons with Advanced Micro-Interactions */}
+        <div className="flex flex-col sm:flex-row gap-5 items-center">
+          <button className="group px-8 py-4 bg-[#0A0A0A] text-white rounded-full text-lg font-medium shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] hover:bg-black transition-all duration-300 flex items-center gap-2">
+            Start as a Candidate 
+            <ChevronRight size={20} className="text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
-          <button className="px-10 py-5 bg-transparent border border-[#111111] text-[#111111] rounded-full text-lg hover:bg-[#111111] hover:text-white transition-colors duration-300 flex items-center gap-3">
-            Post a Project / Hire <ChevronRight size={20} />
+          
+          <button className="group px-8 py-4 bg-white/50 border border-gray-300 text-[#0A0A0A] rounded-full text-lg font-medium hover:border-[#0A0A0A] hover:bg-white transition-all duration-300 flex items-center gap-2 backdrop-blur-sm">
+            Post a Project / Hire 
+            <ChevronRight size={20} className="text-gray-400 group-hover:text-[#0A0A0A] group-hover:translate-x-1 transition-all duration-300" />
           </button>
         </div>
-      </footer>
+      </div>
+
+      {/* Bottom Legal / Utility Bar */}
+      <div className="absolute bottom-8 left-0 w-full px-8 md:px-16 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 font-medium z-10">
+        <p>© {new Date().getFullYear()} YourBrand. All rights reserved.</p>
+        <div className="flex gap-6 mt-4 md:mt-0">
+          <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-black transition-colors">Terms of Service</a>
+        </div>
+      </div>
+
+    </footer>
 
     </div>
   );
